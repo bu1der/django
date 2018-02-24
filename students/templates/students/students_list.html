@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="uk-UA">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <title>Сервіс обліку студентів</title>
+  </head>
+  <body>
+    <!-- Start Container -->
+    <div class="container">
+      <!-- header -->
+      <div class="row" id="header">
+        <div class="col-sm-8">
+          <h1>Сервіс обліку студентів</h1>
+        </div>
+        <div class="col-sm-4" id="group-selector">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Група:</label>
+            </div>
+            <select class="custom-select" id="inputGroupSelect01">
+              <option selected>Усі студенти</option>
+              <option value="1">МтМ - 21, Каращенко Петро(№254)</option>
+              <option value="2">МтМ - 22, Лазоришин Василь(№2123)</option>
+              <option value="3">МтМ - 23, Рибчак Віталій(№789)</option>
+            </select>
+          </div>
+        </div>
+      </div>    
+
+      <!-- subheader-->
+      <div class="row" id="sub-header">
+        <div class="col-sm-12">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link active" href="/">Студенти</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/journal">Відвідування</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url "groups" %}">Групи</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- main page content-->
+      <div class="row" id="content-columns">
+        <div class="col-sm-12" id="content-column">
+          <div class="alert alert-warning" role="alert">
+            Зміни скасовано.
+          </div>
+          <h2>База Студентів</h2>
+          <a class="btn btn-primary" href="{% url "students_add" %}" role="button">Додати студента</a>
+          <div>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">№</th>
+                  <th scope="col">Фото</th>
+                  <th scope="col">Прізвище</th>
+                  <th scope="col">Ім'я</th>
+                  <th scope="col">№ Білету</th>
+                  <th scope="col">Дії</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td><img class="rounded-circle" height="30" width="30" src="./img/sn1.jpg"></td>
+                  <td><a title="Редагувати" href="{% url "students_edit" 1 %}">Каращенко</a></td>
+                  <td><a title="Редагувати" href="{% url "students_edit" 1 %}">Петро</a></td>
+                  <td>2123</td>
+                  <td><div class="dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Дії
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/journal/1">Відвідування</a>
+                        <a class="dropdown-item" href="{% url "students_edit" 1 %}">Редагувати</a>
+                        <a class="dropdown-item" href="{% url "students_delete" 1 %}">Видалити</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td><img class="rounded-circle" height="30" width="30" src="./img/sn2.jpg"></td>
+                  <td><a title="Редагувати" href="{% url "students_edit" 1 %}">Лазоришин</a></td>
+                  <td><a title="Редагувати" href="{% url "students_edit" 1 %}">Василь</a></td>
+                  <td>5456</td>
+                  <td><div class="dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Дії
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/journal/1">Відвідування</a>
+                        <a class="dropdown-item" href="{% url "students_edit" 1 %}">Редагувати</a>
+                        <a class="dropdown-item" href="{% url "students_delete" 1 %}">Видалити</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td><img class="rounded-circle" height="30" width="30" src="./img/col3.jpg"></td>
+                  <td><a title="Редагувати" href="{% url "students_edit" 1 %}">Рибчак</a></td>
+                  <td><a title="Редагувати" href="{% url "students_edit" 1 %}">Віталій</a></td>
+                  <td>8789</td>
+                  <td><div class="dropdown">
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Дії
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/journal/1">Відвідування</a>
+                        <a class="dropdown-item" href="{% url "students_edit" 1 %}">Редагувати</a>
+                        <a class="dropdown-item" href="{% url "students_delete" 1 %}">Видалити</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+            <!-- Page navigation-->
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">&laquo</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">&raquo</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <div class="row" id="footer">
+        <div class="col-sm-12">
+          &copy; 2018 Сервіс обліку студентів
+        </div>
+      </div>
+      
+    <!-- end container--> 
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
